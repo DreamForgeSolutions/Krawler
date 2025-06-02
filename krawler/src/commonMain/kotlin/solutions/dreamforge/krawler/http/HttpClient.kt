@@ -5,6 +5,7 @@ import io.ktor.client.statement.*
 import io.ktor.http.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import solutions.dreamforge.krawler.utils.IoDispatacher
 import solutions.dreamforge.krawler.utils.Logger
 import kotlin.time.Duration
 
@@ -21,7 +22,7 @@ class HttpClient(
 
      private val ktorClient = createHttpClient(connectTimeout, readTimeout)
     
-    suspend fun fetch(url: String): FetchResult = withContext(Dispatchers.Default) {
+    suspend fun fetch(url: String): FetchResult = withContext(IoDispatacher) {
         try {
             val response = ktorClient.get(url) {
                 headers {

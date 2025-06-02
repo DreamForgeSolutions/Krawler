@@ -14,6 +14,7 @@ import solutions.dreamforge.krawler.domain.model.CrawlMetrics
 import solutions.dreamforge.krawler.domain.model.CrawlRequest
 import solutions.dreamforge.krawler.domain.model.CrawlResult
 import solutions.dreamforge.krawler.domain.model.CrawlStatus
+import solutions.dreamforge.krawler.utils.IoDispatacher
 import kotlin.concurrent.Volatile
 
 private val logger = Logger.withTag("CrawlerEngine")
@@ -49,7 +50,7 @@ class CrawlerEngine(
     private var activeRequests = 0L
     
     private var engineJob: Job? = null
-    private val engineScope = CoroutineScope(Dispatchers.Default + SupervisorJob())
+    private val engineScope = CoroutineScope(IoDispatacher + SupervisorJob())
     
     /**
      * Start the crawler engine

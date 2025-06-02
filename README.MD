@@ -1,6 +1,6 @@
 # Krawler 🕷️
 
-[![Kotlin](https://img.shields.io/badge/kotlin-2.0.0-blue.svg?logo=kotlin)](http://kotlinlang.org)
+[![Kotlin](https://img.shields.io/badge/kotlin-2.1.21-blue.svg?logo=kotlin)](http://kotlinlang.org)
 [![Kotlin Multiplatform](https://img.shields.io/badge/Kotlin-Multiplatform-blueviolet)](https://kotlinlang.org/docs/multiplatform.html)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Maven Central](https://img.shields.io/maven-central/v/solutions.dreamforge.krawler/krawler)](https://search.maven.org/search?q=g:solutions.dreamforge.krawler)
@@ -615,7 +615,7 @@ limitations under the License.
 
 - **Issues**: [GitHub Issues](https://github.com/dreamforge/krawler/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/dreamforge/krawler/discussions)
-- **Email**: support@dreamforge.solutions
+- **Email**: hello@dreamforge.solutions
 
 ---
 

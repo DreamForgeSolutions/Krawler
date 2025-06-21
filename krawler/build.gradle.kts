@@ -1,12 +1,12 @@
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
-
+import com.vanniktech.maven.publish.SonatypeHost
 plugins {
     alias(libs.plugins.multiplatform)
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlinx.serialization)
     alias(libs.plugins.buildConfig)
     alias(libs.plugins.atomicfu)
-    id("convention.publication")
+    id("com.vanniktech.maven.publish") version "0.31.0"
 }
 
 group = "solutions.dreamforge.krawler"
@@ -18,8 +18,6 @@ kotlin {
 
     androidTarget { publishLibraryVariants("release") }
     jvm()
-    js { browser() }
-    wasmJs { browser() }
     iosX64()
     iosArm64()
     iosSimulatorArm64()
@@ -97,4 +95,46 @@ android {
 buildConfig {
     // BuildConfig configuration here.
     // https://github.com/gmazzo/gradle-buildconfig-plugin#usage-in-kts
+}
+
+mavenPublishing {
+    coordinates(
+        groupId = "solutions.dreamforge",
+        artifactId = "krawler",
+        version = project.version.toString()
+    )
+
+
+
+    pom {
+        name.set("Krawler")
+        description.set("Krawl the web with Kotlin Multiplatform")
+        inceptionYear.set("2024")
+        url.set("https://github.com/DreamForgeSolutions/Krawler")
+
+        licenses {
+            license {
+                name.set("MIT")
+                url.set("https://opensource.org/licenses/MIT")
+            }
+        }
+
+        developers {
+            developer {
+                id.set("dreamforge")
+                name.set("dreamforge")
+                email.set("hello@dreamforge.solutions")
+            }
+        }
+
+        scm {
+            url.set("https://github.com/DreamForgeSolutions/")
+        }
+    }
+
+    // Configure publishing to Maven Central
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+
+    // Enable GPG signing for all publications
+    signAllPublications()
 }
